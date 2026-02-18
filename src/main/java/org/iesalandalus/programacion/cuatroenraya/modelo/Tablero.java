@@ -18,4 +18,56 @@ public class Tablero {
     private boolean columnaVacia(int columna) {
         return true;
     }
+
+    public boolean estaLleno() {
+        return true;
+    }
+
+    private boolean columnaLlena(int columna) {
+        return true;
+    }
+
+    public boolean introducirFicha(int columna, Ficha ficha) {
+        return true;
+    }
+
+    private void comprobarFicha(Ficha ficha) {
+
+    }
+
+    private void comprobarColumna(int columna) {
+
+    }
+
+    private int getPrimeraFilaVacia(int columna) {
+        return columna;
+    }
+
+    private boolean comprobarTirada(int fila, int columna) {
+        return true;
+    }
+
+    private boolean objetivoAlcanzado(int fichasIgualesConsecutivas) {
+        return true;
+    }
+
+    private boolean comprobarHorizontal(int fila, Ficha ficha) {
+        return true;
+    }
+
+    private boolean comprobarVertical(int columna, Ficha ficha) {
+        return true;
+    }
+
+    private boolean comprobarDiagonalNE(int filaActual, int columnaActual, Ficha ficha) {
+        return true;
+    }
+
+    private boolean comprobarDiagonalNO(int filaActual, int columnaActual, Ficha ficha) {
+        return true;
+    }
+
+    private int menor(int fila, int columna) {
+        return fila;
+    }
 }
