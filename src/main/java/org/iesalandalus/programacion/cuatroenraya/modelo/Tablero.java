@@ -46,13 +46,20 @@ public class Tablero {
         return vacio;
     }
 
-    public boolean introducirFicha(int columna, Ficha ficha) {
-        return true;
+    public boolean introducirFicha(int columna, Ficha ficha) throws CuatroEnRayaExcepcion {
+        comprobarFicha(ficha);
+        comprobarColumna(columna);
+        if (columnaLlena(columna)) {
+            throw new CuatroEnRayaExcepcion("Columna llena.");
+        }
+        int fila = getPrimeraFilaVacia(columna);
+        casilla[fila][columna].setFicha(ficha);
+        return comprobarTirada(fila, columna);
     }
 
     private void comprobarFicha(Ficha ficha) {
         if (ficha == null) {
-            throw new IllegalArgumentException("La ficha no es válida.");
+            throw new NullPointerException("La ficha no puede ser nula.");
         }
     }
 
@@ -82,19 +89,36 @@ public class Tablero {
     }
 
     private boolean comprobarHorizontal(int fila, Ficha ficha) {
-        return true;
+        int fichaConsecutivas = 0;
+        for (int i = 0; !objetivoAlcanzado(fichaConsecutivas) && i < COLUMNAS; i++) {
+            if (casilla[fila][i].estaOcupada() && casilla[fila][i].getFicha().equals(ficha)) {
+                fichaConsecutivas++;
+            } else {
+                fichaConsecutivas = 0;
+            }
+        }
+        return objetivoAlcanzado(fichaConsecutivas);
     }
 
     private boolean comprobarVertical(int columna, Ficha ficha) {
-        return true;
+        int fichaConsecutivas = 0;
+        for (int i = 0; !objetivoAlcanzado(fichaConsecutivas) && i < COLUMNAS; i++) {
+            if (casilla[i][columna].estaOcupada() && casilla[i][columna].getFicha().equals(ficha)) {
+                fichaConsecutivas++;
+            } else {
+                fichaConsecutivas = 0;
+            }
+        }
+        return objetivoAlcanzado(fichaConsecutivas);
     }
 
     private boolean comprobarDiagonalNE(int filaActual, int columnaActual, Ficha ficha) {
-        return true;
+        int fichaConsecutivas = 0;
+        int desplazamiento = menor(filaActual, columnaActual);
     }
 
     private boolean comprobarDiagonalNO(int filaActual, int columnaActual, Ficha ficha) {
-        return true;
+        int fichaConsecutivas = 0;
     }
 
     private int menor(int fila, int columna) {
