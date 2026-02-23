@@ -115,10 +115,31 @@ public class Tablero {
     private boolean comprobarDiagonalNE(int filaActual, int columnaActual, Ficha ficha) {
         int fichaConsecutivas = 0;
         int desplazamiento = menor(filaActual, columnaActual);
+        int filaInicial = filaActual - desplazamiento;
+        int columnaInicial = columnaActual - desplazamiento;
+        for (int i = filaInicial; i < FILAS; i++) {
+            for (int j = columnaInicial; j < COLUMNAS; j++) {
+                if (casilla[i][j].estaOcupada() && casilla[i][j].getFicha().equals(ficha)) {
+                    fichaConsecutivas++;
+                }
+            }
+        }
+        return objetivoAlcanzado(fichaConsecutivas);
     }
 
     private boolean comprobarDiagonalNO(int filaActual, int columnaActual, Ficha ficha) {
         int fichaConsecutivas = 0;
+        int desplazamiento = menor(filaActual, columnaActual);
+        int filaInicial = filaActual - desplazamiento;
+        int columnaInicial = columnaActual - desplazamiento;
+        for (int i = filaInicial; i < 0; i++) {
+            for (int j = columnaInicial; j < COLUMNAS; j++) {
+                if (casilla[i][j].estaOcupada() && casilla[i][j].getFicha().equals(ficha)) {
+                    fichaConsecutivas++;
+                }
+            }
+        }
+        return objetivoAlcanzado(fichaConsecutivas);
     }
 
     private int menor(int fila, int columna) {
