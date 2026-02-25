@@ -10,7 +10,7 @@ public class Main {
 	public static void main(String[] args) {
         Jugador jugador1 = Consola.leerJugador();
         Jugador jugador2 = Consola.leerJugador(jugador1.colorFichas() == Ficha.AZUL ? Ficha.VERDE : Ficha.AZUL);
-        CuatroEnRaya cuatroEnRaya = new CuatroEnRaya(jugador1, jugador1);
+        CuatroEnRaya cuatroEnRaya = new CuatroEnRaya(jugador1, jugador2);
         cuatroEnRaya.jugar();
 	}
 	
