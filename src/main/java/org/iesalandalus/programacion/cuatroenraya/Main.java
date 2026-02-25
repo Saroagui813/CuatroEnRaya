@@ -1,6 +1,6 @@
 package org.iesalandalus.programacion.cuatroenraya;
 
-import org.iesalandalus.programacion.cuatroenraya.modelo.Consola;
+import org.iesalandalus.programacion.cuatroenraya.vista.Consola;
 import org.iesalandalus.programacion.cuatroenraya.modelo.CuatroEnRaya;
 import org.iesalandalus.programacion.cuatroenraya.modelo.Ficha;
 import org.iesalandalus.programacion.cuatroenraya.modelo.Jugador;

@@ -160,7 +160,10 @@ public class Tablero {
             for (int j = 0; j < COLUMNAS; j++) {
                 salida.append(casillas[i][j]);
             }
-            salida.append(i == 0 ? "")
+            salida.append(i == 0 ? "|\n" : "|\n|");
         }
+        String barraHorizontal = "-".repeat(COLUMNAS);
+        salida.append(String.format(" %s%n", barraHorizontal));
+        return salida.toString();
     }
 }
